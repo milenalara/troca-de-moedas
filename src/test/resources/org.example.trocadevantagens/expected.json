@@ -1,0 +1,18 @@
+{
+  "id": 1,
+  "name": "Lucas Almeida",
+  "email": "aluno@exemplo.com",
+  "cpf": "12345678901",
+  "rg": "MG1234567",
+  "balance": 1000,
+  "password": "default",
+  "educationalInstitution": {
+    "id": 1,
+    "name": "Pontifícia Universidade Católica de Minas Gerais - PUC Minas"
+  },
+  "course": {
+    "id": 1,
+    "name": "Ciência da Computação"
+  }
+}
+
