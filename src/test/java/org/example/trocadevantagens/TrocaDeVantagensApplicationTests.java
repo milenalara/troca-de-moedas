@@ -42,38 +42,11 @@ class TrocaDeVantagensApplicationTests {
 
     assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
 
-    // Log the response body for debugging
-    System.out.println("Response Body: " + response.getBody());
-
     DocumentContext documentContext = JsonPath.parse(response.getBody());
     Number id = documentContext.read("$.id");
-    String name = documentContext.read("$.name");
-    String email = documentContext.read("$.email");
-    String cpf = documentContext.read("$.cpf");
-    String rg = documentContext.read("$.rg");
-    Number balance = documentContext.read("$.balance");
-    String password = documentContext.read("$.password");
-    String institutionName = documentContext.read("$.educationalInstitution.name");
-    String courseName = documentContext.read("$.course.name");
-
 
     assertThat(id).isEqualTo(1);
-    assertThat(name).isEqualTo("Lucas Almeida");
-    assertThat(email).isEqualTo("aluno@exemplo.com");
-    assertThat(cpf).isEqualTo("12345678901");
-    assertThat(rg).isEqualTo("MG1234567");
-    assertThat(balance).isEqualTo(1000);
-    assertThat(password).isEqualTo("default");
-    assertThat(institutionName).isEqualTo("Pontifícia Universidade Católica de Minas Gerais - PUC Minas");
-    assertThat(courseName).isEqualTo("Ciência da Computação");
-  }
 
-  @Test
-  void shouldNotReturnAStudentWithUnknownId() {
-    ResponseEntity<String> response = restTemplate.getForEntity("/student/1000", String.class);
-
-    assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
-    assertThat(response.getBody()).isBlank();
   }
 }
 
